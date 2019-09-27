@@ -1,0 +1,48 @@
+﻿@model Dog
+@{ 
+
+    Layout = "_ProfileLayout";
+}
+
+@*THIS IS DOG EDIT
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="DogID" />
+    <input type="hidden" asp-for="AccountID" />
+    <div class="form-group">
+        <label asp-for="Name">Name:</label>
+        <span asp-validation-for="Name" class="text-danger"></span>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Rkey"></label>
+        <input asp-for="Rkey" class="form-control" />
+    </div>
+    <div class="text-center">
+        <button class="btn btn-primary" type="submit">Save</button>
+        <a asp-action="List" asp-route-accountID="@Model.AccountID" class="btn btn-default">Cancel</a>
+    </div>
+</form>*@
+
+    <div id="divspace"></div>
+    <div id="flexcontainer">
+        <div class="col-md-4" style="background-color:#bdbdbd;border-radius:5px; padding-bottom:10px">
+            <form asp-action="Edit" method="post" asp-controller="Dog">
+                <input type="hidden" asp-for="DogID" />
+                <input type="hidden" asp-for="AccountID" />
+                <div class="form-group">
+                    <label asp-for="Name" class="subtitles">Name:</label>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                    <input asp-for="Name" class="form-control"/>
+                </div>
+                <div class="form-group">
+                        <label asp-for="Rkey" class="subtitles">Rkey:</label>
+                    <input asp-for="Rkey" class="form-control" >
+                </div>
+
+                <div class="text-center">
+                <button class="btn btn-success" style="border-radius:30px; padding-left:40px; padding-right:40px" type="submit">Save</button>
+                <a asp-action="List" asp-route-accountID="@Model.AccountID" class="btn btn-default mission">Cancel</a></div>
+            </form>
+        </div>
+    </div>

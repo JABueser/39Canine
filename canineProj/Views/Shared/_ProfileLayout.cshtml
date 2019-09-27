@@ -1,0 +1,91 @@
+﻿@*<!DOCTYPE html>
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />
+        <title>@ViewBag.Title</title>
+        <style>
+            .input-validation-error {
+                border-color: red;
+                background-color: #fee;
+            }
+        </style>
+        <script asp-src-include="lib/jquery/**/jquery.min.js"></script>
+        <script asp-src-include="lib/jquery-validation/**/jquery.validate.min.js"></script>
+        <script asp-src-include="lib/jquery-validation-unobtrusive/**/*.min.js"></script>
+
+    </head>
+    <body class="panel panel-default">
+        <div class="panel-heading"><h4>@ViewBag.Title</h4></div>
+        <div class="panel-body">
+            @if (TempData["message"] != null)
+            {
+                <div class="alert alert-success">@TempData["message"]</div>
+            }
+            @RenderBody()
+        </div>
+        <a class="btn btn-sm btn-primary float-right" asp-action="Logout" asp-controller="Account">
+            Log Out
+        </a>
+    </body>
+    </html>*@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canine</title>
+    <link href="~/lib/fontawesome/web-fonts-with-css/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+    <title>@ViewBag.Title</title>
+    <style>
+        .input-validation-error {
+            border-color: red;
+            background-color: #fee;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="div-bgpillow">
+        <div id="hero-top">
+            <nav class="navbar navbar-light navbar-expand-md">
+                <div class="container-fluid">
+                    <a class="navbar-brand" asp-action="Index" asp-controller="Home" data-aos="fade" data-aos-once="true"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navcol-1">
+                        <ul class="nav navbar-nav mx-auto">
+                            <li class="nav-item" role="presentation"><a class="nav-link active" asp-action="Index" asp-controller="Home" data-aos="fade" data-aos-delay="50" data-aos-once="true">Home</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link" asp-action="About" asp-controller="Home" data-aos="fade" data-aos-delay="100" data-aos-once="true">About</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link" asp-action="NewsLetter" asp-controller="Home" data-aos="fade" data-aos-delay="150" data-aos-once="true">Newsletters</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link" asp-action="Faq" asp-controller="Home" data-aos="fade" data-aos-delay="200" data-aos-once="true">FAQ</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item" role="presentation" data-aos="fade-down" data-aos-once="true"><a class="nav-link active" asp-action="List" asp-controller="Product">Shop</a></li>
+                            @await Html.PartialAsync("_LoginPartial")
+                            @*<li class="nav-item" role="presentation"><a class="nav-link" asp-action="Login" asp-controller="Account">Sign In</a></li>*@
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="panel-heading"><h4>@ViewBag.Title</h4></div>
+            <div class="panel-body">
+                @if (TempData["message"] != null)
+        {
+            <div class="alert alert-success">@TempData["message"]</div>
+}
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/lib/js/bs-animation.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+</body>
+</html>

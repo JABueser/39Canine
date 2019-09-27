@@ -1,0 +1,132 @@
+﻿@*<div class="card m-3 rounded">
+        <div class="card-block m-2">
+            Breed 1: @Model.Breed1<br />
+            Breed 1 Percent: @Model.Breed1Percent<br />
+            Breed 2: @Model.Breed2<br />
+            Breed 2 Percent: @Model.Breed2Percent<br />
+            Breed 3: @Model.Breed3<br />
+            Breed 3 Percent: @Model.Breed3Percent<br />
+            Breed 4: @Model.Breed4<br />
+            Breed 4 Percent: @Model.Breed4Percent<br />
+            Breed 5: @Model.Breed5<br />
+            Breed 5 Percent: @Model.Breed5Percent<br />
+
+        </div>
+    </div>*@
+@model Breed 
+
+<script src="~/lib/chart.js/dist/Chart.js"></script>
+<div>
+    <section class="d-flex flex-column justify-content-between">
+
+        <div id="hero-middle">
+            <div class="row no-gutters">
+                @*<div class="col"></div>*@
+                <div class="col col-md-6" style=" margin:0 auto; background-color:rgb(244,242,243); border-radius:5px; padding:10px;">
+                    <br />
+                    <br />
+                    <h3 class="subtitles text-center"> BREED PERCENTAGES</h3>
+                    <br />
+                    <br />
+                    <div class="container">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="hero-bottom"></div>
+    </section>
+</div>
+<div id="divspace"></div>
+
+@*<script>
+    var myChart = document.getElementById('myChart').getContext('2d');
+
+    var breedChart = new Chart(myChart, {
+        type: 'pie',
+        data: {
+            labels: ['@Model.Breed1', '@Model.Breed2', '@Model.Breed3', '@Model.Breed4', '@Model.Breed5'],
+            datasets: [{
+                label: 'Population',
+                data: [
+                    @Model.Breed1Percent,
+                    @Model.Breed2Percent,
+                    @Model.Breed3Percent,
+                    @Model.Breed4Percent,
+                    @Model.Breed5Percent
+                ],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)',
+                    'rgba(152, 102, 255, 0.6)',
+                    //'rgba(255, 159, 64, 0.6)',
+                    //'rgba(255, 99, 132, 0.6)',
+                ],
+                borderWidth: 1,
+                borderColor: '#777',
+                hoverBorderWidth: 3,
+                hoverBorderColor:'rgba(42, 183, 153, 0.56)'
+            }],
+        },
+        options: {}
+    });
+</script>*@
+
+@*<script>
+var breedChart = new Chart(document.getElementById("doughnut-chart"), {
+    type: 'doughnut',
+    data: {
+        labels: ["@Model.Breed1", "@Model.Breed1", "@Model.Breed1", "@Model.Breed1", "@Model.Breed1"],
+        datasets: [
+            {
+                label: "Genetic Breed Percentage",
+                backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                data: [@Model.Breed1Percent, @Model.Breed2Percent, @Model.Breed3Percent, @Model.Breed4Percent, @Model.Breed5Percent]
+            }
+        ]
+    },
+    options: {
+        title: {
+            display: true,
+            text: 'Predicted world population (millions) in 2050'
+        }
+    }
+});
+</script>*@
+
+<script>
+    var myChart = document.getElementById('myChart').getContext('2d');
+
+    var breedChart = new Chart(myChart, {
+        type: 'doughnut',
+        data: {
+            labels: ['@Model.Breed1', '@Model.Breed2', '@Model.Breed3', '@Model.Breed4', '@Model.Breed5'],
+            datasets: [{
+                label: 'Genetic Breed Percentage',
+                data: [
+                    @Model.Breed1Percent,
+                    @Model.Breed2Percent,
+                    @Model.Breed3Percent,
+                    @Model.Breed4Percent,
+                    @Model.Breed5Percent
+                ],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)',
+                    'rgba(152, 102, 255, 0.6)',
+                    //'rgba(255, 159, 64, 0.6)',
+                    //'rgba(255, 99, 132, 0.6)',
+                ],
+                borderWidth: 1,
+                borderColor: '#777',
+                hoverBorderWidth: 3,
+                hoverBorderColor:'rgba(42, 183, 153, 0.56)'
+            }],
+        },
+        options: {}
+    });
+</script>

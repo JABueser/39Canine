@@ -1,0 +1,65 @@
+﻿@*@model IEnumerable<Dog>*@
+
+    @*@foreach (var item in Model)
+    {
+        <tr>
+            <td> @item.Name</td>
+            <td>@item.AccountID</td>
+            <td>Dog ID: @item.DogID</td>
+            <td>
+                <form asp-action="Delete" method="post">
+                    <a asp-action="Edit" class="btn btn-sm btn-warning"
+                       asp-route-dogId="@item.DogID" asp-route-accountId="@item.AccountID">
+                        Edit
+                    </a>
+                    <input type="hidden" name="DogID" value="@item.DogID" />
+                    <button type="submit" class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </form>
+
+            </td>
+            <td>
+                <a asp-action="Index" asp-controller="Result" class="btn btn-sm btn-warning"
+                   asp-route-rkey="@item.Rkey">
+                    Go to Results
+                </a>
+            </td>
+        </tr>
+    }*@
+
+@model IEnumerable<Dog>
+<div>
+    <div id="divspace2"></div>
+    <div class="d-flex flex-row justify-content-between">
+        <div></div>
+        
+        <div class="col-lg-8 col-lg-offset-2">
+            <h1 id="navcol-1" class="mission-header; text-center">Your Dog List</h1>
+            <div id="divspace2"></div>
+            <ul class="list-unstyled mission" id="doglist">
+                <a class="btn btn-primary find-out" asp-action="Create" asp-controller="Dog">Add a dog</a>
+                <div id="divspace2"></div>
+                @foreach (var item in Model)
+                {
+                    <li class="subtitles" style="padding-bottom:50px;">
+                        <a asp-action="Index" asp-controller="Result" asp-route-rkey="@item.Rkey" id="dogname" class="btn btn-primary"> @item.Name </a>
+                        <form asp-action="Delete" method="post">
+                            <a asp-action="Edit" class="btn btn-sm btn-warning" style="border-radius:30px; padding-left:25px; padding-right:25px"
+                               asp-route-dogId="@item.DogID" asp-route-accountId="@item.AccountID">
+                                Edit
+                            </a>
+                            <input type="hidden" name="DogID" value="@item.DogID" />
+                            <button type="submit" class="btn btn-danger btn-sm" style="border-radius:30px; padding-left:20px; padding-right:20px">
+                                Delete
+                            </button>
+                        </form>
+                        @*<button class="btn btn-warning" type="button" id="edit-btn">EDIT</button>
+                    <button class="btn btn-danger" type="submit" id="delete-btn"> DELETE </button>*@
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+

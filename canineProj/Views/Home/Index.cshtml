@@ -1,0 +1,47 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@*@model Dog*@
+
+
+
+@*<a asp-action="List" asp-controller="Dog" class="btn btn-sm btn-warning">
+        Edit
+    </a>
+
+    <a asp-action="List" asp-controller="Product" class="btn btn-sm btn-success"> Shop Now </a>
+
+    <a class="btn btn-primary" asp-controller="Account" asp-action="Create">Create</a>
+
+    <a class="btn btn-primary" asp-controller="Account" asp-action="Index">View your Profile</a>*@
+
+@{ 
+    Layout = "_LandingLayout";
+}
+
+
+    <section class="d-flex flex-column justify-content-between" id="herovh">
+        <div></div>
+        <div>
+            <div class="row no-gutters">
+                <div class="col">
+                    <div></div>
+                </div>
+                <div class="col">
+                    <div class="row no-gutters">
+                        <div class="col">
+                            <p class="text-center p-top" data-aos="fade-down" data-aos-duration="400" data-aos-once="true" style="font-family:'Varela Round', sans-serif;font-size:40px;">Find out your dog's genetic story</p>
+                        </div>
+                    </div>
+                    <div class="row no-gutters">
+                        <div class="col find-out-col">
+                        <a asp-action="List" asp-controller="Product" class="btn btn-info find-out" data-aos="fade" data-aos-delay="400" data-aos-once="true">Find out now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div></div>
+    </section>

@@ -1,0 +1,96 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Breed
+@{
+    Layout = "_layout";
+}
+
+
+@*<h3>BREED ID: @Model.BreedID</h3>
+    DONE STYLE
+    *@
+
+
+    <div class="col col-md-9" style="background: rgba(100, 100, 100, 0.95); margin:0 auto; border-radius:5px">
+        <form asp-action="BreedEdit" asp-controller="Admin" method="post">
+            <input type="hidden" asp-for="BreedID" />
+
+            <div class="form-group">
+                <label style="color:antiquewhite" asp-for="Rkey"></label>
+                <span asp-validation-for="Rkey" class="text-danger"></span>
+                <input asp-for="Rkey" class="form-control" />
+            </div>
+
+
+            <div class="form-group">
+                <label style="color:antiquewhite" asp-for="Breed1"></label>
+                <span asp-validation-for="Breed1" class="text-danger"></span>
+                <input asp-for="Breed1" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label style="color:antiquewhite" asp-for="Breed1Percent"></label>
+                <span asp-validation-for="Breed1Percent" class="text-danger"></span>
+                <input asp-for="Breed1Percent" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label style="color:antiquewhite" asp-for="Breed2"></label>
+                <span asp-validation-for="Breed2" class="text-danger"></span>
+                <input asp-for="Breed2" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label style="color:antiquewhite" asp-for="Breed2Percent"></label>
+                <span asp-validation-for="Breed2Percent" class="text-danger"></span>
+                <input asp-for="Breed2Percent" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label style="color:antiquewhite" asp-for="Breed3"></label>
+                <span asp-validation-for="Breed3" class="text-danger"></span>
+                <input asp-for="Breed3" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label style="color:antiquewhite" asp-for="Breed3Percent"></label>
+                <span asp-validation-for="Breed3Percent" class="text-danger"></span>
+                <input asp-for="Breed3Percent" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label style="color:antiquewhite" asp-for="Breed4"></label>
+                <span asp-validation-for="Breed4" class="text-danger"></span>
+                <input asp-for="Breed4" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label style="color:antiquewhite" asp-for="Breed4Percent"></label>
+                <span asp-validation-for="Breed4Percent" class="text-danger"></span>
+                <input asp-for="Breed4Percent" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label style="color:antiquewhite" asp-for="Breed5"></label>
+                <span asp-validation-for="Breed5" class="text-danger"></span>
+                <input asp-for="Breed5" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label style="color:antiquewhite" asp-for="Breed5Percent"></label>
+                <span asp-validation-for="Breed5Percent" class="text-danger"></span>
+                <input asp-for="Breed5Percent" class="form-control" />
+            </div>
+
+
+
+            <div class="text-center">
+                <button class="btn btn-primary" type="submit">Save</button>
+                <a asp-action="ResultsList" class="btn btn-default">Cancel</a>
+            </div>
+        </form>
+    </div>

@@ -1,0 +1,65 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using canineProj.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    var currentUser = await UserManager.GetUserAsync(User);
+    var isAdmin = currentUser != null
+    && await UserManager.IsInRoleAsync(currentUser, "Administrator");
+    if (isAdmin)
+    {
+        <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="nav-item" role="presentation">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item" role="presentation" data-aos="fade-down" data-aos-delay="100" data-aos-once="true" >
+                    <a class="nav-link active" asp-area="" asp-controller="Account" asp-action="Index">Account</a>
+                </li>
+                <li class="nav-item" role="presentation" data-aos="fade-down" data-aos-delay="150" data-aos-once="true">
+                    <a class="nav-link active" asp-area="" asp-controller="Admin" asp-action="OrderList">OrderList</a>
+                </li>
+                <li class="nav-item" role="presentation" data-aos="fade-down" data-aos-delay="200" data-aos-once="true">
+                    <a class="nav-link active" asp-area="" asp-controller="Admin" asp-action="ResultsList">Results</a>
+                </li>
+                <li class="nav-item" role="presentation" data-aos="fade-down" data-aos-delay="250" data-aos-once="true">
+                    <a class="nav-link active" asp-area="" asp-controller="Admin" asp-action="ProductList">Products</a>
+                </li>
+                <li class="nav-item" role="presentation" data-aos="fade-down" data-aos-delay="300" data-aos-once="true">
+                    <a class="nav-link active" asp-area="" asp-controller="Dog" asp-action="List">Dogs</a>
+                </li>
+                <li data-aos="fade-down" data-aos-delay="350" data-aos-once="true">
+                    <button class="btn btn-block" type="submit">Log out</button>
+                </li>
+            </ul>
+        </form>
+
+    }
+    else
+    {
+        <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="nav-item" role="presentation">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item" role="presentation" data-aos="fade-down" data-aos-delay="100" data-aos-once="true">
+                    <a class="nav-link active" asp-area="" asp-controller="Account" asp-action="Index">Account</a>
+                </li>
+
+                <li class="nav-item" role="presentation" data-aos="fade-down" data-aos-delay="200" data-aos-once="true">
+                    <a class="nav-link active" asp-area="" asp-controller="Dog" asp-action="List">Dogs</a>
+                </li>
+                <li data-aos="fade-down" data-aos-delay="300" data-aos-once="true">
+                    <button class="btn btn-block" type="submit">Log out</button>
+                </li>
+            </ul>
+        </form>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item" role="presentation" data-aos="fade-down" data-aos-delay="100" data-aos-once="true"><a class="nav-link"  asp-area="" asp-controller="Account" asp-action="Create">Register   </a></li>
+        <li class="nav-item" role="presentation" data-aos="fade-down" data-aos-delay="200" data-aos-once="true"><a class="nav-link"  asp-area="" asp-controller="Account" asp-action="Login">   Log in</a></li>
+
+    </ul>
+}
+
+

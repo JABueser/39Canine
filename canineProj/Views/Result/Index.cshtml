@@ -1,0 +1,22 @@
+﻿@model ResultViewModel
+
+@{ 
+    Layout = "_ProfileLayout";
+}
+
+<div id="divspace2"></div>
+<section class="d-flex flex-column justify-content-between">
+    <div id="hero-middle">
+        <div class="row no-gutters">
+            @*<div class="col"></div>*@
+            <div class="col col-md-6" style=" margin:0 auto; background-color:rgb(244,242,243); border-radius:5px; padding:10px;">
+                <h3 class="mission-header text-center">@Model.dog.Name</h3>
+            </div>
+        @*</div>*@
+    </div>
+
+</section>
+
+@Html.Partial("ResultSummary", Model.result)
+
+@Html.Partial("BreedSummary", Model.breed)

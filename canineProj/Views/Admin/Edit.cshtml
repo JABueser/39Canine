@@ -1,0 +1,74 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model Result
+@{
+    
+    Layout = "_layout";
+}
+
+
+<div class="col-md-9" style="margin:0 auto; background:rgba(100, 100, 100, 0.95); border-radius:5px">
+    <h3>ResultID @Model.ResultID</h3>
+
+
+    <a asp-action="BreedEdit" asp-controller="Admin" class="btn btn-sm btn-warning"
+        asp-route-resultID="@Model.ResultID">
+        Edit Breeds
+    </a>
+    <a asp-action="BreedCreate" asp-controller="Admin" class="btn btn-sm btn-warning"
+        asp-route-resultID="@Model.ResultID">
+        Add Breeds
+    </a>
+
+    <form asp-action="Edit" asp-controller="Admin" method="post">
+        <input type="hidden" asp-for="ResultID" />
+        @*<div class="form-group">
+            <label asp-for="DogID"></label>
+            ><span asp-validation-for="DogID" class="text-danger"></span>
+            <input asp-for="DogID" class="form-control" />
+        </div>*@ 
+
+        @*<div class="form-group">
+            <label asp-for="BreedID"></label>
+            <span asp-validation-for="BreedID" class="text-danger"></span>
+            <input asp-for="BreedID" class="form-control" />
+        </div>*@
+
+        <div class="form-group">
+            <label style="color:antiquewhite" asp-for="Rkey"></label>
+            <span asp-validation-for="Rkey" class="text-danger"></span>
+            <input asp-for="Rkey" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label style="color:antiquewhite" asp-for="DrugSensitivity"></label>
+            <span asp-validation-for="DrugSensitivity" class="text-danger"></span>
+            <input asp-for="DrugSensitivity" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label style="color:antiquewhite" asp-for="Eyes"></label>
+            <span asp-validation-for="Eyes" class="text-danger"></span>
+            <input asp-for="Eyes" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label style="color:antiquewhite" asp-for="Heart"></label>
+            <span asp-validation-for="Heart" class="text-danger"></span>
+            <input asp-for="Heart" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label style="color:antiquewhite" asp-for="Sex"></label>
+            <span asp-validation-for="Sex" class="text-danger"></span>
+            <input asp-for="Sex" class="form-control" />
+        </div>
+
+        <div class="text-center">
+            <button class="btn btn-primary" type="submit">Save</button>
+            <a asp-action="ResultsList" class="btn btn-default">Cancel</a>
+        </div>
+    </form>
+</div>

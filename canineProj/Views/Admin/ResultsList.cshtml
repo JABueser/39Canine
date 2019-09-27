@@ -1,0 +1,37 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+    DONE STYLE
+*@
+@{
+}
+
+<div id="divspace2"></div>
+
+<div class="text-center">
+    <a asp-action="Create" asp-controller="Admin" class="btn btn-primary">Add Results</a>
+</div>
+
+@model IEnumerable<Result>
+
+@foreach (var item in Model)
+{
+<div class="col col-md-9" style="margin:0 auto; background:rgba(100, 100, 100, 0.95); border-radius:5px">
+    <tr>
+        <td><label style="color:antiquewhite">Rkey ID: @item.Rkey</label></td>
+        <td>
+            <form asp-action="Delete" asp-controller="Admin" method="post">
+                <a asp-action="Edit" asp-controller="Admin" class="btn btn-sm btn-warning"
+                   asp-route-resultID="@item.ResultID" asp-route-accountId="@item.ResultID">
+                    Edit
+                </a>
+                <input type="hidden" name="ResultID" value="@item.ResultID" />
+                <button type="submit" class="btn btn-danger btn-sm">
+                    Delete
+                </button>
+            </form>
+        </td>
+    </tr>
+</div>
+
+}

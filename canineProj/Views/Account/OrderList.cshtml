@@ -1,0 +1,45 @@
+﻿@model Order
+
+<div id="div-bg">
+    <div id="divspace2"></div>
+    <h3 class="mission-header text-center">Your Order Information</h3>
+    <div id="divspace2"></div>
+    <div id="flexcontainer">
+        <div class="table-responsive col col-md-9" style="background-color:#c2c9c8;">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>OrderID</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Zip</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                                   
+                    <tr>
+                        <td>@Model.OrderID</td>
+                        <td>@Model.Name</td>
+                        <td>@Model.Line1 @Model.Line2</td>
+                        <td>@Model.City</td>
+                        <td>@Model.State</td>
+                        <td>@Model.Zip</td>
+                        @if(Model.Shipped == false)
+                        {
+                            <td>Not Shipped</td>
+                        }
+                        else
+                        {
+                            <td>Shipped</td>
+                        }
+                        
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

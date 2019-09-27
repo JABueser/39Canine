@@ -1,0 +1,90 @@
+﻿@*@model IEnumerable<Product>
+    <style>
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+    @foreach (var item in Model)
+    {
+        <center><h2>@item.Name</h2> </center>
+        <center> @item.Description</center>
+        <center>
+            <h4>@item.Price.ToString("c")</h4>
+            <img src="~/images/image.png" alt="Product" style="width:250px;height:250px;">
+
+            <form asp-action="AddToCart" asp-controller="Cart" method="post">
+                <input type="hidden" name="productId" value="@item.ProductID" />
+                <input type="hidden" name="returnUrl"
+                       value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+                <button type="submit" class="btn btn-danger">
+                    Go to cart with product ID
+                </button>
+            </form>
+
+        </center>
+    }
+    <a asp-action="Enter" asp-controller="Product" class="btn btn-sm btn-link">
+        Enter
+    </a>*@
+
+@model IEnumerable<Product>
+
+<div id="divspace2"></div>
+<div id="divspace2"></div>
+<section>
+    @foreach (var item in Model)
+    {
+        <div>
+            <div class="row no-gutters">
+                <div class="col"></div>
+                <div class="col">
+                    <div class="row no-gutters">
+                        <div class="col"><img class="img-fluid" src="~/lib/img/Product.png" width="75%" data-aos="fade" data-aos-duration="500" data-aos-once="true"></div>
+                    </div>
+                    <h4 class="subtitles" data-aos="fade" data-aos-duration="500" data-aos-delay="500" data-aos-once="true">Health + Breed Report: @item.Price.ToString("c")</h4>
+                    <form asp-action="AddToCart" asp-controller="Cart" method="post">
+                        <input type="hidden" name="productId" value="@item.ProductID" />
+                        <input type="hidden" name="returnUrl"
+                               value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+                        <button type="submit" class="btn btn-info find-out" data-aos="fade-down" data-aos-duration="500" data-aos-delay="200" data-aos-once="true">
+                            Go to cart with product ID
+                        </button>
+                    </form>
+                    @*<button class="btn btn-info find-out" type="button" data-aos="fade-down" data-aos-duration="500" data-aos-delay="200" data-aos-once="true">Buy Now</button>*@
+                </div>
+            </div>
+        </div>
+    }
+
+</section>
+<div id="divspace"></div>
+<div id="divspace"></div>
+<div id="divspace2"></div>
+<section id="productdescription">
+    <p data-aos="fade" data-aos-duration="450" data-aos-delay="250" data-aos-once="true" id="productparagraph">
+        We sell one product, our Health and Genetics kit for $39. <br>Included in this is a physical package that will come to you in the mail, that will be sent back to us with <br>the sample of your dog’s DNA (collected through a cheek swab). <br>In
+        around 6-8 weeks after the sample comes to our lab, you’ll receive a comprehensive report <br>on your dog’s well-being.<br>&nbsp;<br>
+    </p>
+    <p data-aos="fade" data-aos-delay="550" data-aos-once="true" id="productparagraph">Includes:<br><br><br></p>
+    <div>
+        <div class="row">
+            <div class="col" data-aos="fade" data-aos-duration="400" data-aos-delay="650" data-aos-once="true">
+                <p id="productparagraph" class="productparagraph">A general health report</p>
+            </div>
+            <div class="col" data-aos="fade" data-aos-duration="450" data-aos-delay="750" data-aos-once="true">
+
+                <p id="productparagraph">Breed percentage makeup</p>
+            </div>
+        </div>
+    </div>
+</section>
+

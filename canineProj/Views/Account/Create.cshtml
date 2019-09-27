@@ -1,0 +1,69 @@
+﻿@model LoginModel
+    @{
+        
+        Layout = "_LandingLayout";
+    }
+@*     <div asp-validation-summary="All" class="text-danger"></div>
+    <form method="post" asp-action="Create" asp-antiforgery="true" class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label" asp-for="Username">User Name:</label>
+            <input class="form-control" asp-for="Username" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" asp-for="Email">Email:</label>
+            <input class="form-control" asp-for="Email" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" asp-for="Password">Password:</label>
+            <input class="form-control" asp-for="Password" type="password" />
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <button type="reset" class="btn btn-primary">Reset</button>
+                <a asp-action="Index" class="btn btn-primary">Cancel</a>
+            </div>
+        </div>
+    </form>*@
+
+<div>
+    <section class="d-flex flex-column justify-content-between" id="herovh">
+        <div></div>
+        <div id="hero-middle">
+            <div class="row no-gutters">
+                <div class="col"></div>
+                <div class="col">
+
+
+                    <div asp-validation-summary="All" class="text-danger" style="background:rgba(218,218,218,0)"></div>
+
+                    <form method="post" asp-action="Create" asp-controller="Account" asp-antiforgery="true" id="sign-in-form">
+                        <div class="form-group">
+                            <label class="custom-control-label" asp-for="Username">Username</label>
+                            <input class="form-control" asp-for="Username">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" asp-for="Email">Email</label>
+                            <input class="form-control" asp-for="Email">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" asp-for="Password">Password</label>
+                            <input class="form-control" asp-for="Password" type="password">
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2">
+                                <button class="btn btn-primary find-out" type="submit" data-aos="fade" data-aos-duration="450" data-aos-delay="150" data-aos-once="true">CREATE</button>
+                                <button class="btn btn-outline-warning find-out" type="reset" data-aos="fade" data-aos-duration="450" data-aos-delay="150" data-aos-once="true">Reset</button>
+                                <a asp-action="Index" class="btn btn-outline-danger find-out" data-aos="fade" data-aos-duration="450" data-aos-delay="150" data-aos-once="true">Cancel</a>
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="hero-bottom"></div>
+    </section>
+</div>

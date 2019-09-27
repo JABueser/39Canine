@@ -1,0 +1,55 @@
+﻿@*@model LoginModel
+    @{
+        ViewBag.Title = "Log In";
+        Layout = "_Layout";
+    }
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <form asp-action="Login" asp-controller="Account" method="post">
+        <input type="hidden" asp-for="ReturnUrl" />
+        <div class="form-group">
+            <label asp-for="Email"></label>
+            <div><span asp-validation-for="Email" class="text-danger"></span></div>
+            <input asp-for="Email" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Password"></label>
+            <div><span asp-validation-for="Password" class="text-danger"></span></div>
+            <input asp-for="Password" class="form-control" />
+        </div>
+        <button class="btn btn-primary" type="submit">Log In</button>
+    </form>*@
+
+@model LoginModel
+@{
+    Layout = "_Layout";
+}
+<div class="div-large-height">
+    <section class="d-flex flex-column justify-content-between" id="herovh">
+        <div></div>
+        <div id="hero-middle">
+            <div class="row no-gutters">
+                <div class="col"></div>
+                <div class="col">
+                    <div class="text-danger" asp-validation-summary="All"></div>
+                    <form id="sign-in-form" asp-action="Login" asp-controller="Account" method="post">
+                        <input type="hidden" asp-for="ReturnUrl" />
+                        <div class="form-group">
+                            <label asp-for="Email">Email</label>
+                            <div><span asp-validation-for="Email" class="text-danger"></span></div>
+                            <input asp-for="Email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Password">Password</label>
+                            <div><span asp-validation-for="Password" class="text-danger"></span></div>
+                            <input asp-for="Password" class="form-control">
+                        </div>
+                        <div class="d-flex justify-content-between"><button class="btn btn-primary find-out" type="submit">Sign In</button>
+                        
+                        <a class="btn btn-outline-success find-out" asp-action="Create" asp-controller="Account">Sign Up</a></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="hero-bottom"></div>
+    </section>
+</div>

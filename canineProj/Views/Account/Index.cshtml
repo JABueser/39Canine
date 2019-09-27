@@ -1,0 +1,48 @@
+﻿@*<h2>Index</h2>
+
+    @model IndexViewModel
+
+    <P>@Model.Username </P>
+
+    <p>@Model.Email</p>
+
+    <p>@Model.FirstName</p>
+
+    <p>@Model.LastName</p>
+
+    <a asp-action="Edit"> Edit your profile</a>
+
+    <form asp-controller="Account" asp-action="OrderList">
+        <p>
+            OrderNumber: <input type="text" name="orderNumber">
+            <input type="submit" value="View Order" />
+        </p>
+    </form>*@
+
+@model IndexViewModel
+<div class="div-large-height">
+    <div class="d-flex flex-column justify-content-between">
+        <div id="divspace"></div>
+        <div id="hero-middle" class="align-bottom">
+            <div class="row no-gutters">
+                <div class="col">
+                    <div></div>
+                </div>
+                <div class="col mission">
+                    <p data-aos="fade" data-aos-duration="500" data-aos-once="true" class="mission-header">Your Profile</p>
+                    <p data-aos="fade" data-aos-duration="500" data-aos-delay="200"><br>@Model.Username&nbsp;<br></p>
+                    <p data-aos="fade" data-aos-duration="500" data-aos-delay="200" data-aos-once="true"><br>@Model.Email<br></p>
+                    <form asp-controller="Account" asp-action="OrderList">
+                        <p data-aos="fade" data-aos-duration="500" data-aos-delay="300" data-aos-once="true">Order Number:</p>
+                        <input class="form-control form-control-lg col col-md-3 margin:0 auto" type="text" name="orderNumber" data-aos="fade" data-aos-duration="450" data-aos-delay="450" data-aos-once="true" style="margin:auto;margin-bottom:0;margin-top:0;">
+                        <button class="btn btn-primary find-out" type="submit" data-aos="fade-down" data-aos-duration="500" data-aos-delay="200" style="margin-top:12px;">
+                            View Order
+                        </button>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div></div>
+    </div>
+</div>
